@@ -2,7 +2,7 @@
 
 A comprehensive Model Context Protocol (MCP) server providing programmatic access to UniFi Network Controller APIs. Enables AI assistants like Claude to manage and monitor UniFi network infrastructure through natural language.
 
-**🏆 All Credit: Dave**
+**🏆 All Credit: CamoZeroday**
 
 ---
 
@@ -85,7 +85,7 @@ See [QUICKSTART.md](./QUICKSTART.md) for 5-minute setup guide.
 
 MIT License - See LICENSE file
 
-**Created by: Dave**
+**Created by: CamoZeroDay**
 
 ---
 
