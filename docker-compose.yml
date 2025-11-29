@@ -1,0 +1,54 @@
+# Docker Compose configuration for UniFi MCP Server
+# Created by: CamoZeroDay
+
+version: '3.8'
+
+services:
+  unifi-mcp-server:
+    build: .
+    image: unifi-mcp-server:latest
+    container_name: unifi-mcp
+    restart: unless-stopped
+    
+    environment:
+      - UNIFI_CONTROLLER_URL=${UNIFI_CONTROLLER_URL}
+      - UNIFI_USERNAME=${UNIFI_USERNAME}
+      - UNIFI_PASSWORD=${UNIFI_PASSWORD}
+      - UNIFI_SITE=${UNIFI_SITE:-default}
+      - UNIFI_VERIFY_SSL=${UNIFI_VERIFY_SSL:-true}
+      - LOG_LEVEL=${LOG_LEVEL:-info}
+      - NODE_ENV=production
+    
+    # Uncomment to use .env file
+    # env_file:
+    #   - .env
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+    
+    # Security
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    
+    # Logging
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    
+    # Health check
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('healthy')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
