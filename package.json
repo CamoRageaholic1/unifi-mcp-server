@@ -1,0 +1,53 @@
+{
+  "name": "@yourscope/unifi-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for UniFi Network Controller management - Created by CamoZeroDay",
+  "author": "CamoZeroDay",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "unifi-mcp-server": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc && chmod +x dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "node-unifi": "^2.2.1",
+    "zod": "^3.23.8",
+    "winston": "^3.15.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "@typescript-eslint/eslint-plugin": "^8.14.0",
+    "@typescript-eslint/parser": "^8.14.0",
+    "eslint": "^9.14.0",
+    "prettier": "^3.3.3",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "unifi",
+    "network",
+    "automation",
+    "ai",
+    "claude"
+  ]
+}
