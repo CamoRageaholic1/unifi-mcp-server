@@ -24,7 +24,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
     "node-unifi": "^2.2.1",
-    "zod": "^3.23.8",
+    "zod": "^4.6.6",
     "winston": "^3.15.0",
     "dotenv": "^16.4.5"
   },
